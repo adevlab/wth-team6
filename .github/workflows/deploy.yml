@@ -18,7 +18,7 @@ jobs:
         - name: deploy
           uses: azure/arm-deploy@v1
           with:
-            resourceGroupName: ${{ varaibles.RESOURCE_GROUP_NAME }}
+            resourceGroupName: ${{ vars.RESOURCE_GROUP_NAME }}
             template: ./InfrastructureAsCode/main.bicep
 #             parameters: 'storagePrefix=mystore storageSKU=Standard_LRS'
             failOnStdErr: false
