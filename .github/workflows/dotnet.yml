@@ -47,7 +47,8 @@ jobs:
     - name: Docker Push
       run: docker push $registryName/$repositoryName:$tag
   
-  deploy:
+  dev:
+    needs: job2
     runs-on: ubuntu-latest
     environment: Development
     steps:
@@ -64,7 +65,8 @@ jobs:
         app-name: 'fvt57fpnr6xn2-dev'
         images: $registryName/$repositoryName:$tag
 
-  deploy:
+  test:
+    needs: dev
     runs-on: ubuntu-latest
     environment: Test
     steps:
@@ -81,7 +83,8 @@ jobs:
         app-name: 'fvt57fpnr6xn2-test'
         images: $registryName/$repositoryName:$tag
 
-  deploy:
+  prod:
+    needs: test
     runs-on: ubuntu-latest
     environment: Production
     steps:
