@@ -8,6 +8,7 @@ using RazorPagesTestSample.Data;
 // a comment
 namespace RazorPagesTestSample
 {
+    // Comment
     public class Program
     {
         public static void Main(string[] args)
