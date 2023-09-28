@@ -81,7 +81,7 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: 'fvt57fpnr6xn2-test'
-        images: $registryName/$repositoryName:$tag
+        images: ${{ env.registryName }}/${{ env.repositoryName }}:${{ env.tag }}
 
   prod:
     needs: test
@@ -99,4 +99,4 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: 'fvt57fpnr6xn2-prod'
-        images: $registryName/$repositoryName:$tag
+        images: ${{ env.registryName }}/${{ env.repositoryName }}:${{ env.tag }}
