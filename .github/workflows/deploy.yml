@@ -24,5 +24,5 @@ jobs:
           with:
             resourceGroupName: ${{ vars.RESOURCE_GROUP_NAME }}
             template: ./InfrastructureAsCode/main.bicep
-#             parameters: 'storagePrefix=mystore storageSKU=Standard_LRS'
+            parameters: 'environment=test'
             failOnStdErr: false
