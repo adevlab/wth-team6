@@ -3,9 +3,13 @@ name: Team 6 Git deploy
 on: workflow_dispatch
 
 jobs:
+    
+
     build-and-deploy:
       runs-on: ubuntu-latest
       steps:
+        - uses: actions/checkout@main
+
         - name: deploy with sp
           uses: azure/login@v1
           with:
