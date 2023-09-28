@@ -1,0 +1,24 @@
+name: Team 6 Git deploy
+
+on: workflow_dispatch
+
+jobs:
+    build-and-deploy:
+      runs-on: ubuntu-latest
+      steps:
+        - name: deploy with sp
+          uses: azure/login@v1
+          with:
+            creds: ${{ secrets.AZURE_SP }}
+        
+        - run: |
+            az webapp list --query "[?state=='Running']"
+
+        # Deploy Bicep file
+        - name: deploy
+          uses: azure/arm-deploy@v1
+          with:
+            resourceGroupName: ${{ secrets.RESOURCE_GROUP_NAME }}
+            template: ./InfrastructureAsCode/main.bicep
+#             parameters: 'storagePrefix=mystore storageSKU=Standard_LRS'
+            failOnStdErr: false
