@@ -1,6 +1,10 @@
 name: Team 6 Git Actions
 
-on: workflow_dispatch
+on: 
+  issues:
+    types:
+      - opened
+  workflow_dispatch:
 
 jobs:
   job1:
